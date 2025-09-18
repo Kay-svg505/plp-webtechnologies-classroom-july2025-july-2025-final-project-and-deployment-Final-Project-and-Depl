@@ -1,0 +1,19 @@
+CafeBliss/
+│── about.html
+│── contact.html
+│── index.html
+│── menu.html
+│
+├── css/
+│   └── style.css
+│
+├──images/
+    ├── coffee-cup.jpg
+    ├── about-cafe.jpg
+    ├── espresso.jpg
+    ├── cappuccino.jpg
+    ├── latte.jpg
+    ├── mocha.jpg
+    └── pastries.jpg
+│    
+└── js/
