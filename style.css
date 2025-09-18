@@ -116,16 +116,19 @@ footer {
 }
 
 .menu-gallery img {
-  width: 180px;   /* fixed small width */
-  height: 180px;  /* fixed height */
-  object-fit: cover; /* crops without distortion */
+  width: 120px;      /* smaller size */
+  height: 120px;     /* smaller size */
+  object-fit: cover; /* crop instead of stretching */
+  display: block;
+  margin: 0 auto 0.8rem; /* centers image */
   border-radius: 10px;
-  margin-bottom: 0.8rem;
 }
 
 .menu-gallery h3 {
   margin: 0.5rem 0;
   color: #6b4226;
+  font-size: 1rem;   /* smaller font size */
+  font-weight: 600;
 }
 
 /* ===== CONTACT PAGE IMAGE ===== */
@@ -188,7 +191,7 @@ form button:hover {
   background: #6e472d;
 }
 
-/* ===== RESPONSIVE NAV ===== */
+/* ===== RESPONSIVE NAV & MENU ===== */
 @media (max-width: 768px) {
   nav ul {
     display: none;
@@ -205,15 +208,13 @@ form button:hover {
     display: block;
   }
 
-  /* Make images shrink nicely on smaller screens */
-  .about-img,
-  .contact-img {
-    width: 90%;
-    max-width: 400px;
+  /* Smaller menu images & text on mobile */
+  .menu-gallery img {
+    width: 100px;
+    height: 100px;
   }
 
-  .menu-gallery img {
-    width: 150px;
-    height: 150px;
+  .menu-gallery h3 {
+    font-size: 0.9rem;
   }
 }
