@@ -68,7 +68,7 @@ footer {
   text-align: center;
   padding: 6rem 1rem;
   color: white;
-  background: url("../images/coffee-cup.jpg") no-repeat center center/cover;
+  background: darkblue; /* solid dark blue background */
   border-bottom: 4px solid #6b4226;
 }
 
@@ -116,18 +116,18 @@ footer {
 }
 
 .menu-gallery img {
-  width: 120px;      /* smaller size */
-  height: 120px;     /* smaller size */
-  object-fit: cover; /* crop instead of stretching */
+  width: 120px;      /* smaller size for desktop */
+  height: 120px;
+  object-fit: cover; /* keeps proportion & crops nicely */
   display: block;
-  margin: 0 auto 0.8rem; /* centers image */
+  margin: 0 auto 0.8rem;
   border-radius: 10px;
 }
 
 .menu-gallery h3 {
   margin: 0.5rem 0;
   color: #6b4226;
-  font-size: 1rem;   /* smaller font size */
+  font-size: 1rem;   /* smaller text */
   font-weight: 600;
 }
 
@@ -208,13 +208,12 @@ form button:hover {
     display: block;
   }
 
-  /* Smaller menu images & text on mobile */
   .menu-gallery img {
-    width: 100px;
+    width: 100px;  /* smaller on mobile */
     height: 100px;
   }
 
   .menu-gallery h3 {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* smaller text on mobile */
   }
 }
