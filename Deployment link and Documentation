@@ -1,0 +1,110 @@
+DEPLOYMENT LINK ;  https://kay-svg505.github.io/plp-webtechnologies-classroom-july2025-july-2025-final-project-and-deployment-Final-Project-and-Depl/
+
+Below is my Documentation
+                           CAFE BLISS DOCUMENTATION
+
+Project: Café Bliss – Café Website
+Author: Joy Kendi Mwongera
+Date: 2025
+Website Purpose: Showcase Café Bliss, provide menu information, and allow customers to contact the café.
+
+1. Overview
+
+The Café Bliss website is a multi-page responsive website designed to provide a modern, elegant, and user-friendly interface for café visitors. The website includes:
+Home Page: Hero section with welcome message, image, and CTA button
+About Page: Information about the café, images, and typing text effect
+Menu Page: Display of café menu items (future implementation can include dynamic menu)
+Contact Page: Contact information and a functional contact form
+
+The design emphasizes coffee-inspired colors, a navy blue background, and a subtle watermark across pages to reinforce branding.
+
+2. Technology Stack
+
+Component	Description
+HTML5	Structure of web pages
+CSS3	Styling, layout, and responsive design
+JavaScript	Mobile menu toggle and typing text effect
+Images	Hero, About, and contact images for visual appeal
+
+3.File Structure
+
+CafeBliss/
+│
+├── index.html          # Home Page
+├── about.html          # About Page
+├── menu.html           # Menu Page
+├── contact.html        # Contact Page
+│
+├── css/
+│   └── style.css       # Common styling for all pages
+│
+├── js/
+│   └── main.js         # JavaScript functionality (menu toggle)
+│
+└── images/
+    ├── hero.jpg
+    ├── about.jpg
+    └── cafe-front.jpg
+
+4. Pages and Features
+
+4.1 Home Page (index.html)
+Hero Section with welcome <h1> and description <p> centered above the image
+Hero Image: showcases the café ambiance
+CTA Button: “See Our Menu” directs users to the menu page
+Responsive Header/Footer: Coffee-brown header, dark footer, navigation menu
+
+4.2 About Page (about.html)
+About Image showing inside the café
+Typing Text Effect: Animated text introducing the café’s philosophy
+Watermark: Large diagonal text “Café Bliss” as branding
+Responsive design: Works on desktop and mobile
+
+4.3 Menu Page (menu.html)
+Placeholder for menu items (images, names, descriptions, prices)
+Styled similarly to Home and About pages for consistent look
+
+4.4 Contact Page (contact.html)
+Contact Information: Phone and email
+Contact Form: Name, Email, Message, and Submit button
+Hero Image / Café Image for visual context
+Responsive Header/Footer and watermark consistent with other pages
+
+5. Styling & Design Choices
+
+Primary Colors:
+Coffee Brown: #6b4226 for headers
+Navy Blue: #001f3f background
+Buttons: Coral #ff7f50 with hover effect
+
+Typography:
+Font: Arial, sans-serif for readability
+Header & Hero: Bold, clear
+
+Watermark:
+Subtle, diagonal “Café Bliss” across all pages
+Fixed position with low opacity (0.07)
+
+Responsiveness:
+Flexbox used for header and layout
+Mobile menu toggle with JavaScript
+
+6. JavaScript Functionality
+Mobile Menu Toggle:
+const menuBtn = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+menuBtn.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
+Typing Text Effect (About Page):
+Animates paragraphs sequentially for engaging user experience
+
+7. Deployment
+
+Hosting:
+Can be hosted using GitHub Pages, Netlify, or Vercel
+Steps to Deploy:
+Upload all files to the server or repository
+Ensure css/style.css and js/main.js paths are correct
+Test navigation links and form functionality
+
