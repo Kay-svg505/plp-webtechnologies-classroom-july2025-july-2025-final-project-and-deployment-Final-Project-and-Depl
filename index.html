@@ -1,40 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Café Bliss | Home</title>
- <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café Bliss | Home</title>
+<style>
+  /* ===== GLOBAL STYLES ===== */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #001f3f; /* Navy background */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
 
-  <script src="js/main.js" defer></script>
+  /* Watermark */
+  body::before {
+    content: "Café Bliss";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 10rem;
+    letter-spacing: 20px;
+    color: rgba(255, 255, 255, 0.07);
+    font-weight: 900;
+    white-space: nowrap;
+    z-index: 0;
+    pointer-events: none;
+    text-align: center;
+  }
+
+  header {
+    background: #6b4226; /* Coffee brown */
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+
+  header nav ul li a.active {
+    font-weight: bold;
+    border-bottom: 2px solid white;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+  }
+
+  main {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .hero img {
+    width: 100%;
+    max-width: 1400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: #ff7f50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+  }
+
+  .btn:hover {
+    background: #ff6333;
+  }
+
+  footer {
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+    background: #333;
+    color: white;
+  }
+
+  /* ===== RESPONSIVE NAV ===== */
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+      flex-direction: column;
+      background: #6b4226;
+      padding: 1rem;
+    }
+    nav.active ul {
+      display: flex;
+    }
+    .menu-toggle {
+      display: block;
+    }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo">☕ Café Bliss</div>
-    <button class="menu-toggle">☰</button>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero">
-      <!-- Added Hero Image -->
-      <img src="images/hero.jpg" alt="Cozy café with coffee and pastries" class="hero-img">
-      
-      <h1>Welcome to Café Bliss</h1>
-      <p>Your cozy spot for the best coffee in town.</p>
-      <a href="menu.html" class="btn">See Our Menu</a>
-    </section>
-  </main>
+<header>
+  <div class="logo">☕ Café Bliss</div>
+  <button class="menu-toggle">☰</button>
+  <nav>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <footer>
-    <p>&copy; 2025 Café Bliss. All rights reserved.</p>
-  </footer>
+<main>
+  <section class="hero">
+    <h1>Welcome to Café Bliss</h1>
+    <p>Your cozy spot for the best coffee in town.</p>
+
+    <!-- Hero Image -->
+    <img src="images/hero.jpg" alt="Cozy café with coffee and pastries">
+
+    <a href="menu.html" class="btn">See Our Menu</a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Café Bliss. All rights reserved.</p>
+</footer>
+
+<script>
+  // ===== MOBILE MENU TOGGLE =====
+  const menuBtn = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  }
+</script>
+
 </body>
 </html>

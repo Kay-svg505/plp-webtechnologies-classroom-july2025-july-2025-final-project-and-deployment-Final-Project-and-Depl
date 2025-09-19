@@ -1,65 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Café Bliss | Menu</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café Bliss | Menu</title>
+<style>
+  /* ===== GLOBAL STYLES ===== */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: navy;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Watermark */
+  body::before {
+    content: "Café Bliss";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 10rem;
+    letter-spacing: 20px;
+    color: rgba(255, 255, 255, 0.07);
+    font-weight: 900;
+    white-space: nowrap;
+    z-index: 0;
+    pointer-events: none;
+    text-align: center;
+  }
+
+  header {
+    background: #6b4226;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+
+  header nav ul li a.active {
+    font-weight: bold;
+    border-bottom: 2px solid white;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+  }
+
+  main {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  footer {
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+    background: #333;
+    color: white;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  /* ===== HORIZONTAL SCROLLABLE MENU ===== */
+  .menu-gallery {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+  }
+
+  .menu-gallery::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .menu-gallery::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+  }
+
+  .menu-item {
+    flex: 0 0 auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .menu-item img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .menu-item h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+  }
+
+  .menu-item p {
+    margin: 0;
+  }
+
+  /* ===== RESPONSIVE NAV ===== */
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+      flex-direction: column;
+      background: #6b4226;
+      padding: 1rem;
+    }
+    nav.active ul {
+      display: flex;
+    }
+    .menu-toggle {
+      display: block;
+    }
+    .menu-item img {
+      width: 150px;
+      height: 120px;
+    }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo">☕ Café Bliss</div>
-    <button class="menu-toggle">☰</button>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="menu.html" class="active">Menu</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <h1>Our Menu</h1>
+<header>
+  <div class="logo">☕ Café Bliss</div>
+  <button class="menu-toggle">☰</button>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="menu.html" class="active">Menu</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <!-- Menu Gallery with Images -->
-    <div class="menu-gallery">
-      <div class="menu-item">
-        <img src="images/espresso.jpg" alt="Espresso">
-        <h3>Espresso</h3>
-        <p>$3</p>
-      </div>
+<main>
+  <h1>Our Menu</h1>
 
-      <div class="menu-item">
-        <img src="images/cappuccino.jpg" alt="Cappuccino">
-        <h3>Cappuccino</h3>
-        <p>$4</p>
-      </div>
-
-      <div class="menu-item">
-        <img src="images/latte.jpg" alt="Latte">
-        <h3>Latte</h3>
-        <p>$4.50</p>
-      </div>
-
-      <div class="menu-item">
-        <img src="images/mocha.jpg" alt="Mocha">
-        <h3>Mocha</h3>
-        <p>$5</p>
-      </div>
-
-      <div class="menu-item">
-        <img src="images/pastry.jpg" alt="Pastries">
-        <h3>Pastries</h3>
-        <p>$2.50</p>
-      </div>
+  <div class="menu-gallery">
+    <div class="menu-item">
+      <img src="images/espresso.jpg" alt="Espresso">
+      <h3>Espresso</h3>
+      <p>$3</p>
     </div>
-  </main>
+    <div class="menu-item">
+      <img src="images/cappuccino.jpg" alt="Cappuccino">
+      <h3>Cappuccino</h3>
+      <p>$4</p>
+    </div>
+    <div class="menu-item">
+      <img src="images/latte.jpg" alt="Latte">
+      <h3>Latte</h3>
+      <p>$4.50</p>
+    </div>
+    <div class="menu-item">
+      <img src="images/mocha.jpg" alt="Mocha">
+      <h3>Mocha</h3>
+      <p>$5</p>
+    </div>
+    <div class="menu-item">
+      <img src="images/pastry.jpg" alt="Pastries">
+      <h3>Pastries</h3>
+      <p>$2.50</p>
+    </div>
+  </div>
+</main>
 
-  <footer>
-    <p>&copy; 2025 Café Bliss. All rights reserved.</p>
-  </footer>
+<footer>
+  <p>&copy; 2025 Café Bliss. All rights reserved.</p>
+</footer>
+
+<script>
+  // ===== MOBILE MENU TOGGLE =====
+  const menuBtn = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  }
+</script>
+
 </body>
 </html>

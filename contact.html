@@ -1,55 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Café Bliss | Contact</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café Bliss | Contact</title>
+<style>
+  /* ===== GLOBAL STYLES ===== */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #001f3f; /* Navy background */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Watermark */
+  body::before {
+    content: "Café Bliss";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 10rem;
+    letter-spacing: 20px;
+    color: rgba(255, 255, 255, 0.07);
+    font-weight: 900;
+    white-space: nowrap;
+    z-index: 0;
+    pointer-events: none;
+    text-align: center;
+  }
+
+  header {
+    background: #6b4226; /* Coffee brown */
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+
+  header nav ul li a.active {
+    font-weight: bold;
+    border-bottom: 2px solid white;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+  }
+
+  main {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  footer {
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+    background: #333;
+    color: white;
+  }
+
+  /* Contact Image */
+  .contact-img {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 1.5rem auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    object-fit: cover;
+  }
+
+  /* Form Styles */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  input, textarea {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: none;
+    width: 100%;
+  }
+
+  button {
+    background-color: #ff7f50;
+    color: #fff;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  button:hover {
+    background-color: #ff6333;
+  }
+
+  /* ===== RESPONSIVE NAV ===== */
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+      flex-direction: column;
+      background: #6b4226;
+      padding: 1rem;
+    }
+    nav.active ul {
+      display: flex;
+    }
+    .menu-toggle {
+      display: block;
+    }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo">☕ Café Bliss</div>
-    <button class="menu-toggle">☰</button>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <h1>Contact Us</h1>
-
-    <!-- Contact Image -->
-    <img src="images/cafe-front.jpg" alt="Front view of Café Bliss" class="contact-img">
-
-    <p>You can reach us through the following:</p>
+<header>
+  <div class="logo">☕ Café Bliss</div>
+  <button class="menu-toggle">☰</button>
+  <nav>
     <ul>
-      <li><strong>Phone:</strong> +254735267834</li>
-      <li><strong>Email:</strong> <a href="mailto:cafe.bliss@org.com">cafe.bliss@org.com</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
+  </nav>
+</header>
 
-    <h2>Send Us a Message</h2>
-    <form id="contact-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" required>
+<main>
+  <h1>Contact Us</h1>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" required>
 
-      <label for="message">Message:</label>
-      <textarea id="message" rows="4" placeholder="Write your message here..." required></textarea>
+  <p>You can reach us through the following:</p>
+  <ul>
+    <li><strong>Phone:</strong> +254735267834</li>
+    <li><strong>Email:</strong> <a href="mailto:cafe.bliss@org.com">cafe.bliss@org.com</a></li>
+  </ul>
 
-      <button type="submit">Send</button>
-    </form>
-  </main>
+  <h2>Send Us a Message</h2>
+  <form id="contact-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
 
-  <footer>
-    <p>&copy; 2025 Café Bliss. All rights reserved.</p>
-  </footer>
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="message">Message:</label>
+    <textarea id="message" rows="4" placeholder="Write your message here..." required></textarea>
+
+    <button type="submit">Send</button>
+  </form>
+</main>
+
+<footer>
+  <p>&copy; 2025 Café Bliss. All rights reserved.</p>
+</footer>
+
+<script>
+  // ===== MOBILE MENU TOGGLE =====
+  const menuBtn = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  }
+</script>
+
 </body>
 </html>

@@ -3,8 +3,27 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #fff8f0;
-  color: #333;
+  background: navy;
+  color: white;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Watermark */
+body::before {
+  content: "Café Bliss";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-size: 10rem;
+  letter-spacing: 20px;
+  color: rgba(255, 255, 255, 0.07);
+  font-weight: 900;
+  white-space: nowrap;
+  z-index: 0;
+  pointer-events: none;
+  text-align: center;
 }
 
 header {
@@ -42,19 +61,6 @@ header nav ul li a.active {
   color: white;
 }
 
-.btn {
-  background: #6b4226;
-  color: white;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background 0.3s ease;
-}
-
-.btn:hover {
-  background: #8b5e3c;
-}
-
 footer {
   background: #333;
   color: white;
@@ -63,135 +69,42 @@ footer {
   margin-top: 2rem;
 }
 
-/* ===== HERO SECTION (Home Page) ===== */
-.hero {
-  text-align: center;
-  padding: 6rem 1rem;
-  color: white;
-  background: darkblue; /* solid dark blue background */
-  border-bottom: 4px solid #6b4226;
+/* ===== TYPING EFFECT ===== */
+.typing-text {
+  display: inline-block;
+  border-right: 2px solid #FFD700; /* golden cursor */
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0; /* start hidden */
+  animation: typing 3s steps(40, end) forwards, blink 0.8s step-end infinite;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.typing-text.finished {
+  border-right: none;
+  animation: none;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
 }
 
-/* ===== ABOUT PAGE IMAGE ===== */
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+/* ===== ABOUT IMAGE ===== */
 .about-img {
   display: block;
-  width: 400px;   /* fixed reasonable width */
-  height: auto;   /* keeps proportions */
-  margin: 1.5rem auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-}
-
-/* ===== MENU PAGE GALLERY ===== */
-.menu-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem;
-  padding: 0;
-  list-style: none;
-}
-
-.menu-gallery li {
-  text-align: center;
-  background: #fff;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.menu-gallery li:hover {
-  transform: translateY(-5px);
-}
-
-.menu-gallery img {
-  width: 120px;      /* smaller size for desktop */
-  height: 120px;
-  object-fit: cover; /* keeps proportion & crops nicely */
-  display: block;
-  margin: 0 auto 0.8rem;
-  border-radius: 10px;
-}
-
-.menu-gallery h3 {
-  margin: 0.5rem 0;
-  color: #6b4226;
-  font-size: 1rem;   /* smaller text */
-  font-weight: 600;
-}
-
-/* ===== CONTACT PAGE IMAGE ===== */
-.contact-img {
-  display: block;
-  width: 400px;   /* smaller fixed size */
+  width: 800px;
+  max-width: 90%;
   height: auto;
   margin: 1.5rem auto;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
-/* ===== CONTACT FORM ===== */
-form {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-form label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #333;
-}
-
-form input,
-form textarea {
-  width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1.2rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: inherit;
-}
-
-form input:focus,
-form textarea:focus {
-  border-color: #8b5e3c; /* coffee brown */
-  outline: none;
-  box-shadow: 0 0 5px rgba(139, 94, 60, 0.5);
-}
-
-form button {
-  background: #8b5e3c;
-  color: #fff;
-  font-size: 1rem;
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-form button:hover {
-  background: #6e472d;
-}
-
-/* ===== RESPONSIVE NAV & MENU ===== */
+/* ===== RESPONSIVE NAV ===== */
 @media (max-width: 768px) {
   nav ul {
     display: none;
@@ -206,14 +119,5 @@ form button:hover {
 
   .menu-toggle {
     display: block;
-  }
-
-  .menu-gallery img {
-    width: 100px;  /* smaller on mobile */
-    height: 100px;
-  }
-
-  .menu-gallery h3 {
-    font-size: 0.9rem; /* smaller text on mobile */
   }
 }
